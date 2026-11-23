@@ -95,3 +95,25 @@
 .chest-actions button{border:1px solid #6657aa;background:#211d43;color:#eeeaff;border-radius:7px;padding:10px 13px;font-size:10px;font-weight:700}
 .chest-actions button.primary{background:linear-gradient(105deg,#287cff,#8050f5);border:0}
 @media(max-width:600px){.chest-nav{padding:8px}.chest-nav span{display:none}.support-page,.chest-page{padding:42px 15px 65px}.page-panel{padding:18px}}
+
+
+/* Demo store */
+.store-page{max-width:1120px;margin:0 auto;padding:55px 22px 90px;min-height:75vh}
+.store-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:30px 0 18px}
+.store-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.demo-product{overflow:hidden;border:1px solid #30395d;border-radius:14px;background:linear-gradient(145deg,#151b34f5,#101426f5)}
+.demo-product-art{height:150px;display:grid;place-items:center;font-size:55px;background:radial-gradient(circle,#6851c477,transparent 60%),linear-gradient(135deg,#172a4b,#25183f)}
+.demo-product-body{padding:18px}
+.demo-product-body h3{font:700 16px Orbitron;margin:7px 0}
+.demo-product-body p{min-height:35px;color:#9da6c4;font-size:11px;line-height:1.6}
+.demo-price{font:700 17px Orbitron;margin:12px 0;color:#fff}
+.demo-product button{width:100%}
+.demo-cart{max-width:800px;margin:35px auto 0;padding:22px;border:1px solid #4b447c;border-radius:14px;background:#10162beF}
+.demo-cart-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff14;font-size:12px}
+.demo-cart-row button{border:0;background:none;color:#ff8195;font-size:18px}
+.demo-cart-total{display:flex;justify-content:space-between;margin-top:18px;font:700 16px Orbitron}
+.demo-checkout{max-width:800px;margin:14px auto;padding:20px;border:1px solid #30395d;border-radius:12px;background:#101629}
+.demo-checkout label{display:block;color:#c4c9e0;font-size:11px;margin:10px 0}
+.demo-checkout input{width:100%;padding:12px;background:#090e20;border:1px solid #343b61;border-radius:7px;color:white}
+@media(max-width:760px){.store-products{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.store-products{grid-template-columns:1fr}.store-page{padding:38px 15px 65px}}
