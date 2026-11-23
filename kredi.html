@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b1b">
+<title>Kredi Yükle | AxoCraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=20261123-6">
+<style>
+.credit-page{max-width:760px;margin:70px auto;padding:0 22px}
+.credit-panel{margin-top:30px;padding:32px;border:1px solid #51478a;border-radius:16px;background:linear-gradient(145deg,#111a33f2,#17132ff2);box-shadow:0 18px 60px #0005}
+.credit-panel label{display:block;color:#c5cbe5;font-size:12px;margin-bottom:10px}
+.credit-panel input{width:100%;padding:16px;background:#090e20;border:1px solid #454c78;border-radius:9px;color:#fff;font:700 20px Orbitron;outline:none}
+.credit-panel input:focus{border-color:#8b72ff}
+.credit-total{margin-top:24px;padding:22px;border-radius:11px;background:#080e21;border:1px solid #343d68;text-align:center}
+.credit-total small{display:block;color:#9da6c4;font-size:10px;letter-spacing:1.5px}
+.credit-total strong{display:block;margin-top:10px;font:800 clamp(28px,6vw,42px) Orbitron;color:#fff}
+.credit-rate{margin-top:17px;color:#aab2d1;font-size:11px;line-height:1.8;text-align:center}
+.credit-warning{margin-top:22px;padding:14px;border-radius:8px;background:#29213b;color:#c9bee9;font-size:11px;line-height:1.7}
+.credit-back{display:inline-block;margin-top:24px;color:#b7baff;font-size:12px}
+@media(max-width:600px){.credit-page{margin:40px auto}.credit-panel{padding:22px}}
+</style>
+</head>
+<body>
+<div class="bg-scene"></div><div class="bg-shade"></div>
+<header class="topbar">
+<a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXO<span class="accent">CRAFT</span><small>NETWORK</small></span></a>
+<nav class="main-nav"><a class="nav-tab" href="index.html">Ana Sayfa</a><a class="nav-tab" href="index.html#oyun-modlari">Oyun Modları</a><a class="nav-tab" href="index.html#duyurular">Duyurular</a><a class="nav-tab active" href="kredi.html">Kredi Yükle</a></nav>
+</header>
+<main class="credit-page">
+<div class="section-heading"><span class="eyebrow">AXOCRAFT CÜZDAN</span><h1 style="font:800 clamp(30px,5vw,46px) Orbitron;margin:16px 0">KREDİ <span class="gradient">YÜKLE</span></h1><p>Yüklemek istediğin kredi miktarını gir, Türk lirası karşılığını hemen hesaplayalım.</p></div>
+<section class="credit-panel">
+<label for="creditAmount">Yüklemek istediğin kredi miktarı</label>
+<input id="creditAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="Örn. 50">
+<div class="credit-total"><small>ÖDENECEK TUTAR (HESAPLAMA)</small><strong id="creditPrice">₺0,00</strong></div>
+<div class="credit-rate">1 kredi = ₺2,60</div>
+<div class="credit-warning">Bu sayfa şu anda yalnızca fiyat hesaplar. Kart bağlama, ödeme alma ve hesaba kredi yükleme sistemi henüz bağlı değildir. Şimdilik ödeme yapma veya kart bilgisi girme.</div>
+</section>
+<a class="credit-back" href="index.html">← Ana sayfaya dön</a>
+</main>
+<script>
+const amount=document.getElementById("creditAmount");
+const price=document.getElementById("creditPrice");
+const format=new Intl.NumberFormat("tr-TR",{style:"currency",currency:"TRY",minimumFractionDigits:2});
+amount.addEventListener("input",()=>{const n=Number(amount.value);price.textContent=Number.isFinite(n)&&n>0?format.format(Math.floor(n)*2.6):format.format(0);});
+</script>
+</body>
+</html>
