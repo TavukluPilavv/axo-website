@@ -45,9 +45,9 @@
 @media(max-width:600px){.hero{min-height:490px;padding-top:40px}.hero-copy{max-width:100%}.hero-art.eagle-art{position:relative;right:auto;top:auto;width:100%;height:200px;margin-top:5px}.eagle-emoji{font-size:170px}.punishment-search{flex-direction:column}}
 
 /* Real uploaded AxoCraft artwork */
-.bg-scene{background-image:url("Minecraft%20Landscape.jpeg")!important;background-size:cover!important;background-position:center 54%!important;opacity:.60!important;filter:none!important}
+.bg-scene{background-image:url("Minecraft%20Landscape.jpeg?v=20261123-3")!important;background-size:cover!important;background-position:center 54%!important;opacity:.60!important;filter:none!important}
 .bg-scene:after{display:none!important}
-.bg-shade{background:linear-gradient(180deg,rgba(5,8,22,.76),rgba(5,8,22,.82) 65%,rgba(5,8,22,.91))!important}
+.bg-shade{background:linear-gradient(180deg,rgba(5,8,22,.18),rgba(5,8,22,.28) 65%,rgba(5,8,22,.40))!important}
 .hero{display:flex!important;align-items:center;justify-content:flex-end!important;min-height:570px!important;padding:55px 2% 55px 0!important}
 .hero-copy{order:2!important;margin:0 0 0 auto!important;max-width:540px!important;text-align:right!important;z-index:3!important}
 .hero-copy>p{margin-left:auto!important;margin-right:0!important}
@@ -56,3 +56,5 @@
 .eagle-image{display:block;width:min(100%,590px);max-height:520px;object-fit:contain;filter:drop-shadow(0 0 18px #159dff) drop-shadow(0 0 42px #692aff);animation:eagleFloat 5s ease-in-out infinite}
 .eagle-emoji,.art-caption{display:none!important}
 @media(max-width:800px){.hero{min-height:unset!important;display:flex!important;flex-direction:column!important;padding:35px 0!important;gap:0!important}.hero-copy{order:1!important;max-width:100%!important;text-align:right!important;margin:0!important}.hero-art.eagle-art{position:relative!important;order:2!important;left:auto!important;top:auto!important;transform:none!important;width:100%!important;height:230px!important}.eagle-image{max-height:240px;width:100%}.hero-copy>p{margin-left:auto!important}.hero-actions,.ip-line{justify-content:flex-end!important}}
+
+.store-empty{max-width:680px;margin:38px auto 0;padding:48px 24px;text-align:center;border:1px dashed #514b83;border-radius:14px;background:#10162bd9}.store-empty-icon{font-size:42px;color:#9b82ff}.store-empty h3{font:700 18px Orbitron;margin:14px 0 8px}.store-empty p{color:#9da6c4;font-size:12px;line-height:1.7;margin:0}
