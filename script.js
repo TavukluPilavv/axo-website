@@ -14,3 +14,9 @@ $("menuSupport").onclick=()=>{$("accountMenu").classList.add("hidden");$("destek
 $("supportForm").onsubmit=e=>{e.preventDefault();if($("supportMessage").value.trim().length<10){toast("Lütfen mesajını biraz daha açık yaz.");return;}toast("Destek formu hazır. Sunucu bağlantısı henüz yapılmadı.");$("supportForm").reset();};
 $("checkout").onclick=()=>{let n=$("checkoutName").value.trim();if(!cart.length){toast("Önce sepete ürün ekle.");return}if(!/^[A-Za-z0-9_]{3,16}$/.test(n)){toast("Geçerli Minecraft kullanıcı adı gir.");return}toast("Sipariş özeti hazır; ödeme ve teslimat henüz bağlı değil.");};
 paintAccount();
+
+/* Navigation highlights and demo-only punishment lookup */
+const navTabs=[...document.querySelectorAll(".main-nav .nav-tab")];
+function setActiveTab(){const hash=location.hash||"#anasayfa";navTabs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===hash));}
+window.addEventListener("hashchange",setActiveTab);setActiveTab();
+$("punishmentSearch").onsubmit=e=>{e.preventDefault();const name=$("punishmentName").value.trim();if(!name){toast("Oyuncu adı gir.");return;}$("punishmentResult").innerHTML="<span>🔎</span><b>"+name.replace(/[&<>"]/g,"")+"</b><small>Canlı ban / mute verisi henüz sunucuya bağlı değil.</small>";};
