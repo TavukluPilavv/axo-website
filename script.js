@@ -10,7 +10,7 @@ function openChest(){$("accountMenu").classList.add("hidden");$("chestModal").cl
 $("menuChest").onclick=openChest;
 document.querySelectorAll("[data-chest-close]").forEach(b=>b.onclick=()=> $("chestModal").classList.remove("open"));
 $("chestModal").onclick=e=>{if(e.target===$("chestModal"))$("chestModal").classList.remove("open")};
-$("menuSupport").onclick=()=>{$("accountMenu").classList.add("hidden");$("destek").scrollIntoView({behavior:"smooth"});};
+$("menuSupport").onclick=()=>{location.href="support.html";};
 $("supportForm").onsubmit=e=>{e.preventDefault();if($("supportMessage").value.trim().length<10){toast("Lütfen mesajını biraz daha açık yaz.");return;}toast("Destek formu hazır. Sunucu bağlantısı henüz yapılmadı.");$("supportForm").reset();};
 $("checkout").onclick=()=>{let n=$("checkoutName").value.trim();if(!cart.length){toast("Önce sepete ürün ekle.");return}if(!/^[A-Za-z0-9_]{3,16}$/.test(n)){toast("Geçerli Minecraft kullanıcı adı gir.");return}toast("Sipariş özeti hazır; ödeme ve teslimat henüz bağlı değil.");};
 paintAccount();
