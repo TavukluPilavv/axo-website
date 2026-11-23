@@ -62,3 +62,12 @@
 /* Final background clarity and brightness adjustment */
 .bg-scene{filter:brightness(.95) blur(0)!important;opacity:.60!important;background-size:cover!important;background-repeat:no-repeat!important;image-rendering:auto!important;backdrop-filter:none!important}
 .bg-scene:after{display:none!important;filter:none!important}
+
+/* AxoCraft homepage: only modes, announcements and server IP */
+.bg-scene{opacity:.55!important;filter:brightness(.95) blur(0)!important;background-repeat:no-repeat!important;background-size:cover!important;backdrop-filter:none!important}
+.bg-scene:after{display:none!important}
+#status-wrap,.status-wrap,#magaza,#ozellikler,#cezalar,#destek,.join{display:none!important}
+.announcements{padding-top:48px;padding-bottom:90px}
+.announcement-empty{max-width:680px;margin:32px auto 0;padding:35px 22px;display:grid;justify-items:center;gap:10px;text-align:center;border:1px dashed #514b83;border-radius:14px;background:#10162bd9}
+.announcement-empty span{font-size:34px}.announcement-empty b{font:700 14px Orbitron}.announcement-empty small{font-size:11px;color:#9da6c4}
+#openCart{display:none!important}
