@@ -43,3 +43,16 @@
 .punishment-result>span{font-size:30px}.punishment-result b{font:700 12px Orbitron}.punishment-result small{color:#9da6c4;font-size:10px}
 @media(max-width:950px){.topbar{flex-wrap:wrap}.main-nav{order:3;width:100%;overflow-x:auto;justify-content:flex-start;padding:4px 0 8px}.main-nav .nav-tab{padding:9px 11px}.hero{min-height:460px}.hero-art.eagle-art{right:-8%;width:52%;top:65px}.hero-copy{max-width:52%}}
 @media(max-width:600px){.hero{min-height:490px;padding-top:40px}.hero-copy{max-width:100%}.hero-art.eagle-art{position:relative;right:auto;top:auto;width:100%;height:200px;margin-top:5px}.eagle-emoji{font-size:170px}.punishment-search{flex-direction:column}}
+
+/* Real uploaded AxoCraft artwork */
+.bg-scene{background-image:url("Minecraft%20Landscape.jpeg")!important;background-size:cover!important;background-position:center 54%!important;opacity:.15!important;filter:none!important}
+.bg-scene:after{display:none!important}
+.bg-shade{background:linear-gradient(180deg,rgba(5,8,22,.76),rgba(5,8,22,.82) 65%,rgba(5,8,22,.91))!important}
+.hero{display:flex!important;align-items:center;justify-content:flex-end!important;min-height:570px!important;padding:55px 2% 55px 0!important}
+.hero-copy{order:2!important;margin:0 0 0 auto!important;max-width:540px!important;text-align:right!important;z-index:3!important}
+.hero-copy>p{margin-left:auto!important;margin-right:0!important}
+.hero-actions,.ip-line{justify-content:flex-end!important}
+.hero-art.eagle-art{order:1!important;position:absolute!important;left:0!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important;width:55%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;opacity:1!important;z-index:1!important}
+.eagle-image{display:block;width:min(100%,590px);max-height:520px;object-fit:contain;filter:drop-shadow(0 0 18px #159dff) drop-shadow(0 0 42px #692aff);animation:eagleFloat 5s ease-in-out infinite}
+.eagle-emoji,.art-caption{display:none!important}
+@media(max-width:800px){.hero{min-height:unset!important;display:flex!important;flex-direction:column!important;padding:35px 0!important;gap:0!important}.hero-copy{order:1!important;max-width:100%!important;text-align:right!important;margin:0!important}.hero-art.eagle-art{position:relative!important;order:2!important;left:auto!important;top:auto!important;transform:none!important;width:100%!important;height:230px!important}.eagle-image{max-height:240px;width:100%}.hero-copy>p{margin-left:auto!important}.hero-actions,.ip-line{justify-content:flex-end!important}}
