@@ -164,3 +164,18 @@
 @keyframes eagleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media(max-width:800px){.reference-hero{min-height:650px!important;padding:18px 14px 24px!important}.hero-meta{padding:0;gap:10px}.server-title,.server-version{padding:10px 11px}.server-title b{font-size:10px}.server-version b{font-size:11px}.server-title small,.server-version small{font-size:7px}.hero-center{min-height:470px;padding:15px 0 60px}.reference-hero .hero-art.eagle-art{width:min(90%,330px)!important;height:255px!important}.reference-hero .eagle-image{max-height:260px}.launch-announcement{left:14px;bottom:15px;width:min(340px,calc(100% - 28px))}}
 @media(max-width:480px){.reference-hero{min-height:620px!important}.server-title,.server-version{gap:7px;padding:9px 8px}.server-title b{font-size:9px}.server-version b{font-size:10px}.hero-center{min-height:445px}.reference-hero .hero-art.eagle-art{height:225px!important}.reference-hero .hero-copy h1{font-size:34px}.launch-announcement{padding:9px 10px}.launch-announcement img{width:42px;height:42px}}
+
+
+/* Bottom-left launch announcement and selected navigation state */
+.main-nav .nav-tab{position:relative}
+.main-nav .nav-tab.active{background:linear-gradient(120deg,#1766a8,#313a86)!important;border-color:#5bbcff!important;box-shadow:0 0 18px #238be755!important}
+.main-nav .nav-tab.active:after{content:"";position:absolute;left:12px;right:12px;bottom:-5px;height:3px;border-radius:4px;background:#54c8ff;box-shadow:0 0 12px #35aaff}
+.announcement-bottom{display:flex;justify-content:flex-start;align-items:stretch;margin:30px 0 0}
+.announcements .section-heading{text-align:left}.announcements .section-heading p{margin-left:0}
+.announcement-bottom .launch-announcement{position:relative;left:auto;bottom:auto;width:min(650px,100%);min-height:150px;padding:20px 22px;gap:18px;border:1px solid #65baff88;border-radius:16px;background:linear-gradient(120deg,rgba(8,73,127,.97),rgba(32,48,120,.96) 55%,rgba(67,35,125,.95));box-shadow:0 14px 42px #03152c99,0 0 28px #299fff2b;backdrop-filter:blur(12px)}
+.announcement-bottom .launch-announcement img{width:86px;height:86px;flex:0 0 86px;object-fit:contain;filter:drop-shadow(0 0 14px #75caff)}
+.announcement-bottom .launch-announcement small,.announcement-bottom .launch-announcement b,.announcement-bottom .launch-announcement em{display:block}
+.announcement-bottom .launch-announcement small{font:800 9px Inter;letter-spacing:2px;color:#bde8ff;margin-bottom:9px}
+.announcement-bottom .launch-announcement b{font:800 clamp(14px,2vw,19px) Orbitron;line-height:1.45;color:#fff}
+.announcement-bottom .launch-announcement em{font:500 12px/1.75 Inter;color:#e0edff;margin-top:9px}
+@media(max-width:600px){.announcement-bottom .launch-announcement{padding:15px;gap:12px}.announcement-bottom .launch-announcement img{width:62px;height:62px;flex-basis:62px}.announcements .section-heading{text-align:left}}
