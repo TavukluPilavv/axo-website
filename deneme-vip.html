@@ -1,5 +1,55 @@
 <!doctype html>
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071a31"><title>Deneme VIP+ | AxoCraft</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css?v=20261124-4"></head><body><div class="bg-scene"></div><div class="bg-shade"></div>
 <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXO<span class="accent">CRAFT</span><small>NETWORK</small></span></a><nav class="main-nav"><a class="nav-tab" href="index.html">Ana Sayfa</a><a class="nav-tab" href="magaza.html">Mağaza</a><a class="nav-tab" href="support.html">Destek</a><a class="nav-tab" href="kredi.html">Kredi Yükle</a><a class="nav-tab" href="cezalar.html">Cezalar</a><a class="nav-tab active" href="deneme-vip.html">Deneme VIP</a></nav><div class="nav-actions"><a class="cart-button" href="magaza.html#sepet">🛒 <span>Sepet</span></a></div></header>
-<main class="store-page"><div class="section-heading"><span class="eyebrow">AXOCRAFT ÖZEL HEDİYESİ</span><h1>DENEME <span class="gradient">VIP+</span></h1><p>Axocraft sunucusunda VIP+ ayrıcalıklarını 30 gün boyunca dene.</p></div><section class="page-panel"><div class="demo-product-art">👑</div><h2>VIP+ — 30 Günlük Deneme</h2><p>LuckPerms grup adı: <b>vip+</b></p><div id="trialAccount" class="demo-warning">Deneme VIP+ talep etmek için önce hesabına giriş yapmalısın.</div><button class="primary full" id="claimTrial">OYUNDA TESLİM ET</button><p class="modal-help">Sunucu: <b>axocraft705.mcsh.io</b></p><p class="modal-help">Bilgi: Mevcut giriş ekranı yalnızca tarayıcıda çalışan önizleme hesabıdır. Gerçek hesap doğrulaması ve Minecraft oyuncu adı sahiplik kontrolü tamamlanmadan VIP+ teslimatı açılmaz.</p></section></main><footer><a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXO<span class="accent">CRAFT</span><small>NETWORK</small></span></a><span>© 2026 AxoCraft Network.</span></footer>
-<script>const user=localStorage.getItem("axo_demo_player")||"";const info=document.getElementById("trialAccount");const button=document.getElementById("claimTrial");if(user){info.textContent="Önizleme hesabı: "+user+". Bu hesap henüz sunucu tarafında doğrulanmıyor.";}button.addEventListener("click",()=>{if(!user){info.textContent="Önce giriş yapmalısın. Ana sayfadan Giriş Yap seçeneğini kullan.";return;}info.textContent="VIP+ henüz teslim edilmedi. Gerçek hesap doğrulaması ve oyuncu adı sahiplik kontrolü bağlanınca bu buton güvenli şekilde etkinleştirilecek.";});</script></body></html>
+<main class="store-page"><div class="section-heading"><span class="eyebrow">AXOCRAFT ÖZEL HEDİYESİ</span><h1>DENEME <span class="gradient">VIP+</span></h1><p>Axocraft sunucusunda VIP+ ayrıcalıklarını 30 gün boyunca dene.</p></div><section class="page-panel"><div class="demo-product-art">👑</div><h2>VIP+ — 30 Günlük Deneme</h2><p>LuckPerms grup adı: <b>vip+</b></p><div id="trialAccount" class="demo-warning">Deneme VIP+ talep etmek için önce hesabına giriş yapmalısın.</div><button class="primary full" id="claimTrial">OYUNDA TESLİM ET</button><p class="modal-help">Sunucu: <b>axocraft705.mcsh.io</b></p><p class="modal-help">Güvenlik: Kod 10 dakika geçerlidir ve yalnızca kayıtlı Minecraft hesabı oyunda doğrulayabilir. Bu sayfa şu anda deneme kayıt sistemi kullanır.</p></section></main><footer><a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXO<span class="accent">CRAFT</span><small>NETWORK</small></span></a><span>© 2026 AxoCraft Network.</span></footer>
+<script>
+const API_URL="https://axobridge-api.onrender.com";
+const user=(localStorage.getItem("axo_demo_player")||"").trim();
+const info=document.getElementById("trialAccount");
+const button=document.getElementById("claimTrial");
+if(user){
+  info.textContent="Minecraft oyuncu adın: "+user+". VIP+ hakkını almak için aşağıdaki butona basıp kodu oyun içinde doğrula.";
+}else{
+  info.textContent="Deneme VIP+ talep etmek için önce hesabına giriş yapmalısın.";
+}
+button.addEventListener("click",async()=>{
+  if(!user){
+    info.textContent="Önce giriş yapmalısın. Ana sayfadan Giriş Yap seçeneğini kullan.";
+    return;
+  }
+  if(!/^[A-Za-z0-9_]{3,16}$/.test(user)){
+    info.textContent="Kayıtlı Minecraft oyuncu adı geçersiz. Hesap bilgini kontrol et.";
+    return;
+  }
+  button.disabled=true;
+  button.textContent="KOD OLUŞTURULUYOR...";
+  try{
+    const response=await fetch(API_URL+"/api/demo-vip/request",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({minecraftUsername:user})
+    });
+    const data=await response.json();
+    if(response.status===201){
+      info.textContent="Doğrulama kodun: "+data.code+" — Minecraft sunucusuna gir ve 10 dakika içinde /axobridge doğrula "+data.code+" komutunu yaz. Kod yalnızca "+user+" hesabında çalışır.";
+      button.textContent="KOD OLUŞTURULDU";
+    }else if(response.status===409){
+      info.textContent="Bu Minecraft oyuncu adı deneme VIP+ hakkını daha önce kullanmış.";
+      button.disabled=false;
+      button.textContent="TEKRAR DENE";
+    }else if(response.status===429){
+      info.textContent="Yeni kod istemeden önce 30 saniye beklemelisin.";
+      button.disabled=false;
+      button.textContent="TEKRAR DENE";
+    }else{
+      info.textContent="Kod oluşturulamadı. Biraz sonra tekrar dene.";
+      button.disabled=false;
+      button.textContent="TEKRAR DENE";
+    }
+  }catch(error){
+    info.textContent="AxoBridge API'ye bağlanılamadı. Sunucu/API çevrimiçi olduğunda tekrar dene.";
+    button.disabled=false;
+    button.textContent="TEKRAR DENE";
+  }
+});
+</script></body></html>
