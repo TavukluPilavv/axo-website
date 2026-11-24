@@ -1,4 +1,4 @@
-const IP="axocraft.com";
+const IP="axocraft705.mcsh.io";
 const $=id=>document.getElementById(id);
 function toast(message){const el=$("toast");if(!el)return;el.textContent=message;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2300);}
 async function copyIp(){try{await navigator.clipboard.writeText(IP);toast("Sunucu IP'si kopyalandı!");}catch(e){toast("Sunucu IP: "+IP);}}
@@ -25,7 +25,11 @@ async function status(){const s=$("statusText"),p=$("players"),v=$("version"),d=
 if($("refresh"))$("refresh").onclick=status;
 status();paintAccount();
 const navTabs=[...document.querySelectorAll(".main-nav .nav-tab")];
-function setActiveTab(){const hash=location.hash||"#anasayfa";navTabs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===hash));}
+function setActiveTab(){
+ const path=(location.pathname.split("/").pop()||"index.html").toLowerCase();
+ const hash=location.hash;
+ navTabs.forEach(a=>{const href=(a.getAttribute("href")||"").toLowerCase();const target=href.split("#")[0];const active=href.startsWith("#")?hash===href:(target===path&&(!href.includes("#")||hash===href.split("#")[1]));a.classList.toggle("active",active);});
+}
 window.addEventListener("hashchange",setActiveTab);setActiveTab();
 
 
