@@ -1,4 +1,4 @@
-const IP="zevoracraft.mcsh.gg";
+const IP="axocraft.com";
 const $=id=>document.getElementById(id);
 function toast(message){const el=$("toast");if(!el)return;el.textContent=message;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2300);}
 async function copyIp(){try{await navigator.clipboard.writeText(IP);toast("Sunucu IP'si kopyalandı!");}catch(e){toast("Sunucu IP: "+IP);}}
@@ -31,3 +31,6 @@ window.addEventListener("hashchange",setActiveTab);setActiveTab();
 
 // Header cart indicator and homepage player count
 (function(){const countEl=document.getElementById("headerCartCount");function refreshCart(){if(!countEl)return;let count=0;try{const cart=JSON.parse(localStorage.getItem("axo_demo_cart")||"[]");count=cart.reduce((n,item)=>n+(Number(item.qty)||1),0);}catch(e){}countEl.textContent=String(count);countEl.classList.toggle("has-items",count>0);}refreshCart();window.addEventListener("storage",refreshCart);const cartLink=document.getElementById("headerCart");if(cartLink)cartLink.addEventListener("click",()=>{refreshCart();});const discord=document.getElementById("discordLink");if(discord)discord.addEventListener("click",e=>{e.preventDefault();toast("Discord davet bağlantısı henüz eklenmedi.");});async function playerCount(){try{const r=await fetch("https://api.mcsrvstat.us/3/"+IP);const x=await r.json();const n=x.online?(x.players?.online??0):0;const p=document.getElementById("heroPlayers");const led=document.getElementById("heroOnlineLed");if(p)p.textContent=String(n);if(led)led.style.background=x.online?"#42dfa7":"#ef536b";}catch(e){const p=document.getElementById("heroPlayers");if(p)p.textContent="—";}}playerCount();})();
+
+// Copy the public AxoCraft address
+const copyAddressButton=document.getElementById("copyAddress");if(copyAddressButton)copyAddressButton.addEventListener("click",copyIp);
