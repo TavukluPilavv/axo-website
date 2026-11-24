@@ -7,7 +7,7 @@
 <title>Kredi Yükle | AxoCraft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261124-1">
+<link rel="stylesheet" href="style.css?v=20261124-2">
 <style>
 .credit-page{max-width:760px;margin:70px auto;padding:0 22px}
 .credit-panel{margin-top:30px;padding:32px;border:1px solid #51478a;border-radius:16px;background:linear-gradient(145deg,#111a33f2,#17132ff2);box-shadow:0 18px 60px #0005}
@@ -27,8 +27,8 @@
 <div class="bg-scene"></div><div class="bg-shade"></div>
 <header class="topbar">
 <a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXO<span class="accent">CRAFT</span><small>NETWORK</small></span></a>
-<nav class="main-nav"><a class="nav-tab" href="index.html">Ana Sayfa</a><a class="nav-tab" href="index.html#oyun-modlari">Oyun Modları</a><a class="nav-tab" href="index.html#duyurular">Duyurular</a><a class="nav-tab" href="magaza.html">Mağaza</a><a class="nav-tab" href="support.html">Destek</a><a class="nav-tab active" href="kredi.html">Kredi Yükle</a></nav>
-</header>
+<nav class="main-nav"><a class="nav-tab" href="index.html">Ana Sayfa</a><a class="nav-tab" href="magaza.html">Mağaza</a><a class="nav-tab" href="support.html">Destek</a><a class="nav-tab" href="kredi.html">Kredi Yükle</a><a class="nav-tab" href="cezalar.html">Cezalar</a></nav>
+<div class="nav-actions"><a class="cart-button" id="headerCart" href="magaza.html#sepet">🛒 <span>Sepet</span><b id="headerCartCount" class="cart-count">0</b></a></div></header>
 <main class="credit-page">
 <div class="section-heading"><span class="eyebrow">AXOCRAFT CÜZDAN</span><h1 style="font:800 clamp(30px,5vw,46px) Orbitron;margin:16px 0">KREDİ <span class="gradient">YÜKLE</span></h1><p>Yüklemek istediğin kredi miktarını gir, Türk lirası karşılığını hemen hesaplayalım.</p></div>
 <section class="credit-panel">
@@ -46,5 +46,5 @@ const price=document.getElementById("creditPrice");
 const format=new Intl.NumberFormat("tr-TR",{style:"currency",currency:"TRY",minimumFractionDigits:2});
 amount.addEventListener("input",()=>{const n=Number(amount.value);price.textContent=Number.isFinite(n)&&n>0?format.format(Math.floor(n)*2.6):format.format(0);});
 </script>
-</body>
+<script>let n=0;try{n=JSON.parse(localStorage.getItem("axo_demo_cart")||"[]").reduce((s,p)=>s+(Number(p.qty)||1),0)}catch(e){}const b=document.getElementById("headerCartCount");if(b){b.textContent=n;b.classList.toggle("has-items",n>0)}</script></body>
 </html>
