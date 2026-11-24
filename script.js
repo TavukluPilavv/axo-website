@@ -20,3 +20,8 @@ const navTabs=[...document.querySelectorAll(".main-nav .nav-tab")];
 function setActiveTab(){const hash=location.hash||"#anasayfa";navTabs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===hash));}
 window.addEventListener("hashchange",setActiveTab);setActiveTab();
 $("punishmentSearch").onsubmit=e=>{e.preventDefault();const name=$("punishmentName").value.trim();if(!name){toast("Oyuncu adı gir.");return;}$("punishmentResult").innerHTML="<span>🔎</span><b>"+name.replace(/[&<>"]/g,"")+"</b><small>Canlı ban / mute verisi henüz sunucuya bağlı değil.</small>";};
+
+/* Account menu destinations */
+if($("menuProfile"))$("menuProfile").onclick=()=>{location.href="profil.html"};
+if($("menuCredits"))$("menuCredits").onclick=()=>{location.href="kredi.html"};
+if($("menuStore"))$("menuStore").onclick=()=>{location.href="magaza.html"};
